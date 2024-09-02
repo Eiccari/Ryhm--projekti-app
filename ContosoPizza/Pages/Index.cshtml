@@ -16,3 +16,11 @@
         <label class="form-check-label" for="flexCheckDefault">
             female
 </div>
+
+<button type="submit" class="btn btn-primary">Generate Name</button>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.GeneratedName))
+{
+    <p>Your random name is: <strong>@Model.GeneratedName</strong></p>
+}

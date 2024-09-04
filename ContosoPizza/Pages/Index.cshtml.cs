@@ -13,7 +13,7 @@ namespace ContosoPizza.Pages
             _logger = logger;
         }
         public string GeneratedName { get; set; } = string.Empty;
-        public string valittuika;
+        public string valittuika = "";
         public void Ika(int ika)
         {
             Console.WriteLine("Minkä ikäinen, alle 101");

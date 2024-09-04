@@ -1,4 +1,35 @@
 ﻿@page
-@model ContosoPizza.pages.NameReaderModel
+@model ContosoPizza.Pages.IndexModel
 @{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form method="get">
+    <p>Please select gender:</p>
+    <input type="radio" id="man" name="valittu" value="Miehet" required>
+    <label for="man">Man</label><br>
+    <input type="radio" id="woman" name="valittu" value="Naiset" required>
+    <label for="woman">Woman</label><br>
+
+    <br>
+
+    <p>Please select age group:</p>
+    <input type="radio" id="child" name="valittuika" value="Lapset" required>
+    <label for="child">Child</label><br>
+    <input type="radio" id="young" name="valittuika" value="Nuoret" required>
+    <label for="young">Young</label><br>
+    <input type="radio" id="adult" name="valittuika" value="Aikuiset" required>
+    <label for="adult">Adult</label><br><br>
+
+    <button type="submit" class="btn btn-primary">Generate Name</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.GeneratedName))
+{
+    <p>Your random name is: <strong>@Model.GeneratedName</strong></p>
 }

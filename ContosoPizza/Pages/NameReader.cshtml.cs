@@ -18,10 +18,12 @@ namespace Contoso.Pages
 
         public void OnGet(string valittu, string valittuika)
         {
-            // Lists of names
+
             List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_nais_nimet") };
             List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText("nuori_nais_nimet.txt") };
             List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText("vanha_nais_nimet.txt") };
+
+
 
             List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_mies_nimet.txt") };
             List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText("nuori_mies_nimet.txt") };
@@ -29,6 +31,7 @@ namespace Contoso.Pages
             // Generate a random name based on the selected gender
             if (valittu == "Miehet")
             {
+
                 if (valittuika == "child")
                 {
                     GeneroiName = GenerateRandomName(Miehet_lapsi);

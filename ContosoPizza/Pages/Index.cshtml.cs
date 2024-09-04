@@ -17,14 +17,16 @@ namespace ContosoPizza.Pages
 
         public void OnGet(string valittu)
         {
+            List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_nais_nimet.txt") };
+            List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText("nuori_nais_nimet.txt") };
+            List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText("vanha_nais_nimet.txt") };
 
-            List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\lapsi_nais_nimet.txt") };
-            List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\nuori_nais_nimet.txt") };
-            List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\vanha_nais_nimet.txt") };
 
-            List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\lapsi_mies_nimet.txt") };
-            List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\nuori_mies_nimet.txt") };
-            List<string> Miehet_vanha = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\vanha_mies_nimet.txt") };
+
+            List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_mies_nimet.txt") };
+            List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText("nuori_mies_nimet.txt") };
+            List<string> Miehet_vanha = new List<string> { System.IO.File.ReadAllText("vanha_mies_nimet.txt") };
+
             if (valittu == "Miehet")
             {
                 if (valittuika == "Lapset")
@@ -33,11 +35,11 @@ namespace ContosoPizza.Pages
                 }
                 if (valittuika == "Nuoret")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet_nuori);
+                    GeneratedName = GenerateRandomNuoretMiehet(Miehet_nuori);
                 }
                 if (valittuika == "Aikuiset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet_vanha);
+                    GeneratedName = GenerateRandomVanhatMiehet(Miehet_vanha);
                 }
 
 
@@ -46,21 +48,35 @@ namespace ContosoPizza.Pages
             {
                 if (valittuika == "Lapset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Naiset_lapsi);
+                    GeneratedName = GenerateRandomNaiset(Naiset_lapsi);
                 }
                 if (valittuika == "Nuoret")
                 {
-                    GeneratedName = GenerateRandomMiehet(Naiset_nuori);
+                    GeneratedName = GenerateRandomNuoretNaiset(Naiset_nuori);
                 }
                 if (valittuika == "Aikuiset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Naiset_vanha);
+                    GeneratedName = GenerateRandomVanhatNaiset(Naiset_vanha);
                 }
             }
-            /*GeneratedName = GenerateRandomNaiset(Naiset);
-            GeneratedName = GenerateRandomMiehet(Miehet);*/
         }
         private string GenerateRandomMiehet(List<string> Miehet)
+        {
+            Random random = new Random();
+
+            string Miehet1 = Miehet[random.Next(Miehet.Count)];
+
+            return $"{Miehet1}";
+        }
+        private string GenerateRandomNuoretMiehet(List<string> Miehet)
+        {
+            Random random = new Random();
+
+            string Miehet1 = Miehet[random.Next(Miehet.Count)];
+
+            return $"{Miehet1}";
+        }
+        private string GenerateRandomVanhatMiehet(List<string> Miehet)
         {
             Random random = new Random();
 
@@ -76,6 +92,21 @@ namespace ContosoPizza.Pages
 
             return $"{Naiset1}";
         }
+        private string GenerateRandomNuoretNaiset(List<string> Naiset)
+        {
+            Random random = new Random();
 
+            string Naiset1 = Naiset[random.Next(Naiset.Count)];
+
+            return $"{Naiset1}";
+        }
+        private string GenerateRandomVanhatNaiset(List<string> Naiset)
+        {
+            Random random = new Random();
+
+            string Naiset1 = Naiset[random.Next(Naiset.Count)];
+
+            return $"{Naiset1}";
+        }
     }
 }

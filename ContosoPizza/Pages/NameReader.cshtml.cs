@@ -32,11 +32,11 @@ namespace Contoso.Pages
             if (valittu == "Miehet")
             {
 
-                if (valittuika == "child")
+                if (valittuika == "Lapset")
                 {
                     GeneroiName = GenerateRandomName(Miehet_lapsi);
                 }
-                if (valittuika == "young")
+                if (valittuika == "Nuoret")
                 {
                     GeneroiName = GenerateRandomName(Miehet_nuori);
                 }

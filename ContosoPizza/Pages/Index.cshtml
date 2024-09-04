@@ -1,12 +1,12 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Nimigeneraattori";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Name Generator</h1>
+    <br>
 </div>
 @* <div class="form-check">
 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -25,32 +25,48 @@ Nuori
 <label class="form-check-label" for="flexCheckDefault">
 Aikuinen
 </div> *@
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <form id="skpika" action="/Index.cshtml.cs"> <!--tää osuus ei toimi ainakana nyt-->
+                <p>Please select gender:</p>
+                <input type="radio" id="man" name="gender" value="Man">
+                <label for="man">Man</label><br>
+                <input type="radio" id="woman" name="gender" value="Woman">
+                <label for="woman">Woman</label><br>
 
 
-<form action="/Index.cshtml.cs"> <!--tää osuus ei toimi ainakana nyt-->
-    <p>Please select gender:</p>
-    <input type="radio" id="man" name="gender" value="Man">
-    <label for="man">Man</label><br>
-    <input type="radio" id="woman" name="gender" value="Woman">
-    <label for="woman">Woman</label><br>
+                <br>
+
+                <p>Please select age group:</p>
+                <input type="radio" id="child" name="age" value="Child">
+                <label for="child">Child</label><br>
+                <input type="radio" id="young" name="age" value="Young">
+                <label for="young">Young</label><br>
+                <input type="radio" id="adult" name="age" value="Adult">
+                <label for="adult">Adult</label><br><br>
+
+            </form>
+        </div>
+        <div class="col">
+            <img class="img-fluid" id="kuva" src="images/kuva.jpg" alt="Cartoon drawing of different aged people"
+                width="200px">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary" id="generateButton" form="skpika">Generate name</button>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <p> Generated name:</p>
+                <p>@Model.GeneratedName</p>
+            </div>
+        </div>
 
 
-    <br>
-
-    <p>Please select age group:</p>
-    <input type="radio" id="child" name="age" value="Child">
-    <label for="child">Child</label><br>
-    <input type="radio" id="young" name="age" value="Young">
-    <label for="young">Young</label><br>
-    <input type="radio" id="adult" name="age" value="Adult">
-    <label for="adult">Adult</label><br><br>
-    <button type="submit" class="btn btn-primary">Generate Name</button>
-</form>
-
-
-</div>
-
-@if (!string.IsNullOrEmpty(Model.GeneratedName))
-{
-    <p>Your random name is: <strong>@Model.GeneratedName</strong></p>
-}
+        @if (!string.IsNullOrEmpty(Model.GeneratedName))
+        {
+            <p>Your random name is: <strong>@Model.GeneratedName</strong></p>
+        }

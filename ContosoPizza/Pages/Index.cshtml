@@ -8,25 +8,46 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
-        Male
-        <input class="form-check-input2" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            female
-            <input class="form-check-input" type="checkbox" value="" id="valittuIka">
-            <label class="form-check-label" for="flexCheckDefault">
-                Lapsi
-                <input class="form-check-input2" type="checkbox" value="" id="valittuIka">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Nuori
-                    <input class="form-check-input2" type="checkbox" value="" id="valittuIka">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Aikuinen
-</div>
+@* <div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+<label class="form-check-label" for="flexCheckDefault">
+Male
+<input class="form-check-input2" type="checkbox" value="" id="flexCheckDefault">
+<label class="form-check-label" for="flexCheckDefault">
+female
+<input class="form-check-input" type="checkbox" value="" id="valittuIka">
+<label class="form-check-label" for="flexCheckDefault">
+Lapsi
+<input class="form-check-input2" type="checkbox" value="" id="valittuIka">
+<label class="form-check-label" for="flexCheckDefault">
+Nuori
+<input class="form-check-input2" type="checkbox" value="" id="valittuIka">
+<label class="form-check-label" for="flexCheckDefault">
+Aikuinen
+</div> *@
 
-<button type="submit" class="btn btn-primary">Generate Name</button>
+
+<form action="/Index.cshtml.cs"> //tää osuus ei toimi ainakana nyt
+    <p>Please select gender:</p>
+    <input type="radio" id="man" name="gender" value="Man">
+    <label for="man">Man</label><br>
+    <input type="radio" id="woman" name="gender" value="Woman">
+    <label for="woman">Woman</label><br>
+
+
+    <br>
+
+    <p>Please select age group:</p>
+    <input type="radio" id="child" name="age" value="Child">
+    <label for="child">Child</label><br>
+    <input type="radio" id="young" name="age" value="Young">
+    <label for="young">Young</label><br>
+    <input type="radio" id="adult" name="age" value="Adult">
+    <label for="adult">Adult</label><br><br>
+    <button type="submit" class="btn btn-primary">Generate Name</button>
+</form>
+
+
 </div>
 
 @if (!string.IsNullOrEmpty(Model.GeneratedName))

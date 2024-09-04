@@ -19,17 +19,45 @@ namespace Contoso.Pages
         public void OnGet(string valittu, string valittuika)
         {
             // Lists of names
-            List<string> Naiset = new List<string> { "Mari", "Siiri", "Emma", "Emilia", "Jaana", "Katja" };
-            List<string> Miehet = new List<string> { "Mikko", "Jari", "Ville", "Jorma", "Joonas", "Leo" };
+            List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\lapsi_nais_nimet.txt") };
+            List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\nuori_nais_nimet.txt") };
+            List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\vanha_nais_nimet.txt") };
+
+            List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\lapsi_mies_nimet.txt") };
+            List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\nuori_mies_nimet.txt") };
+            List<string> Miehet_vanha = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\vanha_mies_nimet.txt") };
 
             // Generate a random name based on the selected gender
             if (valittu == "Miehet")
             {
-                GeneroiName = GenerateRandomName(Miehet);
+                if (valittuika == "Lapset")
+                {
+                    GeneroiName = GenerateRandomName(Miehet_lapsi);
+                }
+                if (valittuika == "Nuoret")
+                {
+                    GeneroiName = GenerateRandomName(Miehet_nuori);
+                }
+                if (valittuika == "Aikuiset")
+                {
+                    GeneroiName = GenerateRandomName(Miehet_vanha);
+                }
+
             }
             else if (valittu == "Naiset")
             {
-                GeneroiName = GenerateRandomName(Naiset);
+                if (valittuika == "Lapset")
+                {
+                    GeneroiName = GenerateRandomName(Naiset_lapsi);
+                }
+                if (valittuika == "Nuoret")
+                {
+                    GeneroiName = GenerateRandomName(Naiset_nuori);
+                }
+                if (valittuika == "Aikuiset")
+                {
+                    GeneroiName = GenerateRandomName(Naiset_vanha);
+                }
             }
         }
 

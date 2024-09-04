@@ -13,9 +13,8 @@ namespace ContosoPizza.Pages
             _logger = logger;
         }
         public string GeneratedName { get; set; } = string.Empty;
-        string valittuika = "Lapset";
 
-        public void OnGet(string valittu)
+        public void OnGet(string valittu, int valittuika)
         {
             List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_nais_nimet.txt") };
             List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText("nuori_nais_nimet.txt") };
@@ -29,15 +28,15 @@ namespace ContosoPizza.Pages
 
             if (valittu == "Miehet")
             {
-                if (valittuika == "Lapset")
+                if (valittuika == 1)
                 {
                     GeneratedName = GenerateRandomMiehet(Miehet_lapsi);
                 }
-                if (valittuika == "Nuoret")
+                if (valittuika == 2)
                 {
                     GeneratedName = GenerateRandomNuoretMiehet(Miehet_nuori);
                 }
-                if (valittuika == "Aikuiset")
+                if (valittuika == 3)
                 {
                     GeneratedName = GenerateRandomVanhatMiehet(Miehet_vanha);
                 }
@@ -46,15 +45,15 @@ namespace ContosoPizza.Pages
             }
             if (valittu == "Naiset")
             {
-                if (valittuika == "Lapset")
+                if (valittuika == 1)
                 {
                     GeneratedName = GenerateRandomNaiset(Naiset_lapsi);
                 }
-                if (valittuika == "Nuoret")
+                if (valittuika == 2)
                 {
                     GeneratedName = GenerateRandomNuoretNaiset(Naiset_nuori);
                 }
-                if (valittuika == "Aikuiset")
+                if (valittuika == 3)
                 {
                     GeneratedName = GenerateRandomVanhatNaiset(Naiset_vanha);
                 }

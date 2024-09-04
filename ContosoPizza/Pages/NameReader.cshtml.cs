@@ -16,46 +16,44 @@ namespace Contoso.Pages
 
         public string GeneroiName { get; set; } = string.Empty;
 
-        public void OnGet(string valittu, string valittuika)
+        public void OnGet(string valittu, int valittuika)
         {
 
-            List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_nais_nimet") };
-            List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText("nuori_nais_nimet.txt") };
-            List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText("vanha_nais_nimet.txt") };
 
-
-
-            List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_mies_nimet.txt") };
-            List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText("nuori_mies_nimet.txt") };
-            List<string> Miehet_vanha = new List<string> { System.IO.File.ReadAllText("vanha_mies_nimet.txt") };
             // Generate a random name based on the selected gender
             if (valittu == "Miehet")
             {
 
-                if (valittuika == "Lapset")
+                if (valittuika == 1)
                 {
+                    List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText("nuori_mies_nimet") };
                     GeneroiName = GenerateRandomName(Miehet_lapsi);
                 }
-                if (valittuika == "Nuoret")
+                if (valittuika == 2)
                 {
+                    List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText("nuori_mies_nimet") };
                     GeneroiName = GenerateRandomName(Miehet_nuori);
                 }
-                if (valittuika == "adult")
+                if (valittuika == 2)
                 {
+                    List<string> Miehet_vanha = new List<string> { System.IO.File.ReadAllText("vanha_mies_nimet") };
                     GeneroiName = GenerateRandomName(Miehet_vanha);
                 }
             }
             else if (valittu == "Naiset")
             {
-                if (valittuika == "child")
+                List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText("lapsi_nais_nimet") };
+                List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText("nuori_nais_nimet") };
+                List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText("vanha_nais_nimet") };
+                if (valittuika == 1)
                 {
                     GeneroiName = GenerateRandomName(Naiset_lapsi);
                 }
-                if (valittuika == "young")
+                if (valittuika == 2)
                 {
                     GeneroiName = GenerateRandomName(Naiset_nuori);
                 }
-                if (valittuika == "adult")
+                if (valittuika == 3)
                 {
                     GeneroiName = GenerateRandomName(Naiset_vanha);
                 }

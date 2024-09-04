@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace ContosoPizza.Pages
 {
@@ -13,81 +12,46 @@ namespace ContosoPizza.Pages
             _logger = logger;
         }
         public string GeneratedName { get; set; } = string.Empty;
-        public string valittuika = "";
-        public void Ika(int ika)
+        string valittuika = "Lapset";
+        public void IanValinta()
         {
-            Console.WriteLine("Minkä ikäinen, alle 101");
-            while (true)
-            {
-                ika = Convert.ToInt32(Console.ReadLine());
-                if (ika >= 1)
-                {
-                    if (ika <= 20)
-                    {
-                        valittuika = "Lapsi";
-                        break;
-                    }
-                    else if (ika <= 50 && ika > 20)
-                    {
-                        valittuika = "Aikuinen";
-                        break;
-                    }
-                    else if (ika <= 100 && ika > 50)
-                    {
-                        valittuika = "vanhus";
-                        break;
-                    }
-                    else if (ika > 101)
-                    { Console.WriteLine("kuollut"); }
-                }
-                else if (ika < 1)
-                { Console.WriteLine("Ei ole syntynyt"); }
-            }
+
         }
-
-
-
         public void OnGet(string valittu)
         {
             List<string> Naiset = new List<string> { "Mari", "Siiri", "Emma", "Emilia", "Jaana", "Katja" };
             List<string> Miehet = new List<string> { "Mikko", "Jari", "Ville", "Jorma", "Joonas", "Leo" };
             if (valittu == "Miehet")
             {
-                //GeneratedName = GenerateRandomNaiset(Naiset);
-                if (valittuika == "Lapsi")
+                if (valittuika == "Lapset")
                 {
-                    //GeneratedName = GenerateRandomMiehet(Miehet);
-                    Console.WriteLine("lapsi");
+                    GeneratedName = GenerateRandomMiehet(Miehet);
                 }
-                if (valittuika == "Aikuinen")
+                if (valittuika == "Nuoret")
                 {
-                    //GeneratedName = GenerateRandomMiehet(Miehet);
-                    Console.WriteLine("aikuinen");
+                    GeneratedName = GenerateRandomMiehet(Miehet);
                 }
-                if (valittuika == "vanhus")
+                if (valittuika == "Aikuiset")
                 {
-                    //GeneratedName = GenerateRandomMiehet(Miehet);
-                    Console.WriteLine("vanhus");
+                    GeneratedName = GenerateRandomMiehet(Miehet);
                 }
+
                 GeneratedName = GenerateRandomMiehet(Miehet);
             }
             if (valittu == "Naiset")
             {
-                //GeneratedName = GenerateRandomNaiset(Naiset);
-                if (valittuika == "Lapsi")
+                GeneratedName = GenerateRandomNaiset(Naiset);
+                if (valittuika == "Lapset")
                 {
-                    //GeneratedName = GenerateRandomMiehet(Miehet);
-                    Console.WriteLine("lapsi");
+                    GeneratedName = GenerateRandomMiehet(Miehet);
                 }
-                if (valittuika == "Aikuinen")
+                if (valittuika == "Nuoret")
                 {
-                    //GeneratedName = GenerateRandomMiehet(Miehet);
-                    Console.WriteLine("aikuinen");
+                    GeneratedName = GenerateRandomMiehet(Miehet);
                 }
-                if (valittuika == "vanhus")
+                if (valittuika == "Aikuiset")
                 {
-                    //GeneratedName = GenerateRandomMiehet(Miehet);
-                    Console.WriteLine("vanhus");
+                    GeneratedName = GenerateRandomMiehet(Miehet);
                 }
             }
             GeneratedName = GenerateRandomNaiset(Naiset);

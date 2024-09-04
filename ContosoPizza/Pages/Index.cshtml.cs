@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System.IO;
 namespace ContosoPizza.Pages
+
 {
     public class IndexModel : PageModel
     {
@@ -13,45 +14,51 @@ namespace ContosoPizza.Pages
         }
         public string GeneratedName { get; set; } = string.Empty;
         string valittuika = "Lapset";
+
         public void OnGet(string valittu)
         {
-            List<string> Naiset = new List<string> { "Mari", "Siiri", "Emma", "Emilia", "Jaana", "Katja" };
-            List<string> Miehet = new List<string> { "Mikko", "Jari", "Ville", "Jorma", "Joonas", "Leo" };
+
+            List<string> Naiset_lapsi = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\lapsi_nais_nimet.txt") };
+            List<string> Naiset_nuori = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\nuori_nais_nimet.txt") };
+            List<string> Naiset_vanha = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\vanha_nais_nimet.txt") };
+
+            List<string> Miehet_lapsi = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\lapsi_mies_nimet.txt") };
+            List<string> Miehet_nuori = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\nuori_mies_nimet.txt") };
+            List<string> Miehet_vanha = new List<string> { System.IO.File.ReadAllText(@"C:\Users\Lari\OneDrive - SASKY koulutuskuntayhtymä\Tiedostot\GitHub\Ryhma-projekti-app\ContosoPizza\pages\vanha_mies_nimet.txt") };
             if (valittu == "Miehet")
             {
                 if (valittuika == "Lapset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet);
+                    GeneratedName = GenerateRandomMiehet(Miehet_lapsi);
                 }
                 if (valittuika == "Nuoret")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet);
+                    GeneratedName = GenerateRandomMiehet(Miehet_nuori);
                 }
                 if (valittuika == "Aikuiset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet);
+                    GeneratedName = GenerateRandomMiehet(Miehet_vanha);
                 }
 
-                GeneratedName = GenerateRandomMiehet(Miehet);
+
             }
             if (valittu == "Naiset")
             {
-                GeneratedName = GenerateRandomNaiset(Naiset);
                 if (valittuika == "Lapset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet);
+                    GeneratedName = GenerateRandomMiehet(Naiset_lapsi);
                 }
                 if (valittuika == "Nuoret")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet);
+                    GeneratedName = GenerateRandomMiehet(Naiset_nuori);
                 }
                 if (valittuika == "Aikuiset")
                 {
-                    GeneratedName = GenerateRandomMiehet(Miehet);
+                    GeneratedName = GenerateRandomMiehet(Naiset_vanha);
                 }
             }
-            GeneratedName = GenerateRandomNaiset(Naiset);
-            GeneratedName = GenerateRandomMiehet(Miehet);
+            /*GeneratedName = GenerateRandomNaiset(Naiset);
+            GeneratedName = GenerateRandomMiehet(Miehet);*/
         }
         private string GenerateRandomMiehet(List<string> Miehet)
         {

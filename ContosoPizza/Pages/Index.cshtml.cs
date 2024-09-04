@@ -12,17 +12,43 @@ namespace ContosoPizza.Pages
             _logger = logger;
         }
         public string GeneratedName { get; set; } = string.Empty;
+        string valittuika = "Lapset";
         public void OnGet(string valittu)
         {
             List<string> Naiset = new List<string> { "Mari", "Siiri", "Emma", "Emilia", "Jaana", "Katja" };
             List<string> Miehet = new List<string> { "Mikko", "Jari", "Ville", "Jorma", "Joonas", "Leo" };
             if (valittu == "Miehet")
             {
+                if (valittuika == "Lapset")
+                {
+                    GeneratedName = GenerateRandomMiehet(Miehet);
+                }
+                if (valittuika == "Nuoret")
+                {
+                    GeneratedName = GenerateRandomMiehet(Miehet);
+                }
+                if (valittuika == "Aikuiset")
+                {
+                    GeneratedName = GenerateRandomMiehet(Miehet);
+                }
+
                 GeneratedName = GenerateRandomMiehet(Miehet);
             }
             if (valittu == "Naiset")
             {
                 GeneratedName = GenerateRandomNaiset(Naiset);
+                if (valittuika == "Lapset")
+                {
+                    GeneratedName = GenerateRandomMiehet(Miehet);
+                }
+                if (valittuika == "Nuoret")
+                {
+                    GeneratedName = GenerateRandomMiehet(Miehet);
+                }
+                if (valittuika == "Aikuiset")
+                {
+                    GeneratedName = GenerateRandomMiehet(Miehet);
+                }
             }
             GeneratedName = GenerateRandomNaiset(Naiset);
             GeneratedName = GenerateRandomMiehet(Miehet);
